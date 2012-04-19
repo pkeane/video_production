@@ -1,0 +1,16 @@
+SELECT ONE TABLE:
+	1. client
+	2. collection
+	3. item
+	4. itemset
+	5. itemset_item
+	6. keyword
+	7. link
+	8. participant
+	9. project
+	10. project_client
+	11. project_keyword
+	12. project_paticipent
+	13. user
+	14. exit program
+
