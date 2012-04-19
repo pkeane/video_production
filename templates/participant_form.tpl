@@ -55,7 +55,7 @@
 					<input type="text" class="span4" name="phone" id="input-phone">
 				</div>
 			</div>
-			<div class="controls"><input type="submit" value="submit" class="btn btn-primary"></div>
+			<div class="controls"><input type="submit" value="save" class="btn btn-primary"></div>
 		</form>
 
 	</div>

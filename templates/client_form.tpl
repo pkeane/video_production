@@ -6,7 +6,7 @@
 
 <div class="row">
 <div class="span3">
-	<h1>Add a Client</h1>
+	<h1>Edit Client</h1>
 
 <ul class="unstyled">
 	<li><h3>
@@ -54,7 +54,7 @@
       <input type="text" class="span4" name="primary_contact_phone" id="input-primary_contact_phone">
    </div>
 </div>
-<div class="controls"><input type="submit" value="submit" class="btn btn-primary"></div>
+<div class="controls"><input type="submit" value="save" class="btn btn-primary"></div>
 </form>
 </div>
 </div>

@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="span3">
-			<h1>Add a Participant</h1>
+			<h1>Edit Participant</h1>
 
 		<ul class="unstyled">
 	<li><h4>
@@ -55,7 +55,8 @@
 		 <input type="text" class="span4" name="phone" value="{$participant->phone}" id="input-phone">
    </div>
 </div>
-<div class="controls"><input type="submit" value="submit" class="btn btn-primary">
+<div class="controls"><input type="submit" value="save" class="btn btn-primary">
+<a href="participant/list" class="btn">cancel</a>
 <a href="participant/{$participant->id}" class="delete btn btn-danger">delete</a>
 </div>
 </form>

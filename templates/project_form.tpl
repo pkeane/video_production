@@ -60,7 +60,7 @@
 <label class="control-label" for="input-collection_id">Collection</label>
    <div class="controls">
 		 <select name="collection_id">
-			 <option value="">select one:</option>
+			 <option value="0">select one:</option>
 			 {foreach item=c from=$collections}
 			 <option value="{$c->id}">{$c->name}</option>
 			 {/foreach}
@@ -72,7 +72,7 @@
 <label class="control-label" for="input-client_id">Client</label>
    <div class="controls">
 		 <select name="client_id">
-			 <option value="">select one:</option>
+			 <option value="0">select one:</option>
 			 {foreach item=cl from=$clients}
 			 <option value="{$cl->id}">{$cl->name}</option>
 			 {/foreach}
@@ -179,22 +179,22 @@
 <div class="control-group">
 <label class="control-label" for="input-can_reuse_videos">Can Reuse Videos (iTunesU, YouTube, etc.)</label>
    <div class="controls">
-      <input type="checkbox" class="span4" name="can_reuse_videos" id="input-can_reuse_videos">
+      <input type="checkbox" value="1" class="span4" name="can_reuse_videos" id="input-can_reuse_videos">
    </div>
 </div>
 <div class="control-group">
 <label class="control-label" for="input-client_provides_storage">Client Provides Storage</label>
    <div class="controls">
-      <input type="checkbox" class="span4" name="client_provides_storage" id="input-client_provides_storage">
+      <input type="checkbox" value="1" class="span4" name="client_provides_storage" id="input-client_provides_storage">
    </div>
 </div>
 <div class="control-group">
 <label class="control-label" for="input-can_delete_raw_when_complete">Can Delete Raw When Complete</label>
    <div class="controls">
-      <input type="checkbox" class="span4" name="can_delete_raw_when_complete" id="input-can_delete_raw_when_complete">
+      <input type="checkbox" value="1" class="span4" name="can_delete_raw_when_complete" id="input-can_delete_raw_when_complete">
    </div>
 </div>
-<div class="controls"><input type="submit" value="submit" class="btn btn-primary"></div>
+<div class="controls"><input type="submit" value="save" class="btn btn-primary"></div>
 </form>
 
 </div>

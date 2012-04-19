@@ -49,8 +49,8 @@ class Dase_Handler_Project extends Dase_Handler
 				$project->path_to_av_server_files = $r->get("path_to_av_server_files");
 				$project->path_to_media_server_files = $r->get("path_to_media_server_files");
 				$project->destination = $r->get("destination");
-				$project->created = $r->get("created");
-				$project->created_by = $r->get("created_by");
+				$project->created = date(DATE_ATOM);
+				$project->created_by = $this->user->eid;
 				$project->itunes_u_category = $r->get("itunes_u_category");
 				$project->can_reuse_videos = $r->get("can_reuse_videos");
 				$project->client_provides_storage = $r->get("client_provides_storage");
@@ -67,7 +67,15 @@ class Dase_Handler_Project extends Dase_Handler
 				if (!$p->load($r->get('id'))) {
 						$r->renderRedirect('projects');
 				}
+				$p->getCollection();
+				$p->getClient();
 				$t = new Dase_Template($r);
+				$clients = new Dase_DBO_Client($this->db);
+				$t->assign('clients',$clients->findAll(1));
+
+				$collections = new Dase_DBO_Collection($this->db);
+				$t->assign('collections',$collections->findAll(1));
+
 				$t->assign('project',$p);
 				$r->renderResponse($t->fetch('project_edit.tpl'));
 		}
@@ -108,8 +116,6 @@ class Dase_Handler_Project extends Dase_Handler
 				$project->path_to_av_server_files = $r->get("path_to_av_server_files");
 				$project->path_to_media_server_files = $r->get("path_to_media_server_files");
 				$project->destination = $r->get("destination");
-				$project->created = $r->get("created");
-				$project->created_by = $r->get("created_by");
 				$project->itunes_u_category = $r->get("itunes_u_category");
 				$project->can_reuse_videos = $r->get("can_reuse_videos");
 				$project->client_provides_storage = $r->get("client_provides_storage");

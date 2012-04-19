@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="span4">
-		<h1>Add a Collection/Series</h1>
+		<h1>Edit Collection/Series</h1>
 
 		<ul class="unstyled">
 			<li><h4>
@@ -43,6 +43,7 @@
 				</div>
 			</div>
 			<div class="controls"><input type="submit" value="save" class="btn btn-primary">
+				<a href="collection/list" class="btn">cancel</a>
 				<a href="collection/{$collection->id}" class="delete btn btn-danger">delete</a>
 			</div>
 		</form>

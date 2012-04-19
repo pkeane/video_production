@@ -54,7 +54,8 @@
 					<input type="text" class="span4" name="primary_contact_phone" value="{$client->primary_contact_phone}" id="input-primary_contact_phone">
 				</div>
 			</div>
-			<div class="controls"><input type="submit" value="submit" class="btn btn-primary">
+			<div class="controls"><input type="submit" value="save" class="btn btn-primary">
+				<a href="client/list" class="btn">cancel</a>
 				<a href="client/{$client->id}" class="delete btn btn-danger">delete</a>
 			</div>
 		</form>

@@ -7,6 +7,7 @@ class Dase_DBO_Project extends Dase_DBO_Autogen_Project
 		public $collection;
 		public $client;
 
+		/*
 		public static function getList($db)
 		{
 				$list = array();
@@ -36,5 +37,38 @@ class Dase_DBO_Project extends Dase_DBO_Autogen_Project
 						$list[] = $p;
 				}
 				return $list;
+		}
+		 */
+
+		public static function getList($db)
+		{
+				//needs optimizing, but above SQL is no good
+				//as project may not have client and coll
+
+				$list = array();
+				$ps = new Dase_DBO_Project($db);
+				$ps->orderBy('shoot_start_date DESC');
+				foreach ($ps->findAll(1) as $p) {
+						$p->getCollection();
+						$p->getClient();
+						$list[] = $p;
+				}
+				return $list;
+		}
+
+		public function getCollection()
+		{
+				$c = new Dase_DBO_Collection($this->db);
+				$c->load($this->collection_id);
+				$this->collection = $c;
+				return $c;
+		}
+
+		public function getClient()
+		{
+				$c = new Dase_DBO_Client($this->db);
+				$c->load($this->client_id);
+				$this->client = $c;
+				return $c;
 		}
 }
