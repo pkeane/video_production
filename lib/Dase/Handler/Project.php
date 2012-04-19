@@ -61,6 +61,20 @@ class Dase_Handler_Project extends Dase_Handler
 				$r->renderRedirect('projects');
 		}
 
+		public function getProject($r) 
+		{
+				$p = new Dase_DBO_Project($this->db);
+				if (!$p->load($r->get('id'))) {
+						$r->renderRedirect('projects');
+				}
+				$p->getCollection();
+				$p->getClient();
+				$t = new Dase_Template($r);
+
+				$t->assign('project',$p);
+				$r->renderResponse($t->fetch('project.tpl'));
+		}
+
 		public function getEditForm($r) 
 		{
 				$p = new Dase_DBO_Project($this->db);

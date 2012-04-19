@@ -15,3 +15,15 @@ a.greyed {
 a.delete {
 	margin-left: 20px;
 }
+
+.clear {
+	clear: both;
+}
+
+dl#project dt {
+	width: 200px;
+}
+
+dl#project dd {
+	margin-left: 220px;
+}
