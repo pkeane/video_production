@@ -6,26 +6,8 @@
 
 <div class="row">
 	<div class="span3">
-		<h1>Add a Client</h1>
+		<h1>Edit Client</h1>
 
-		<ul class="unstyled">
-			<li><h4>
-				<a href="client/form" class="greyed">Add a Client</a> 
-				<a href="client/list"><i class="icon-list"></i></a>
-			</h4></li>
-			<li><h4>
-				<a href="collection/form">Add a Collection/Series</a> 
-				<a href="collection/list"><i class="icon-list"></i></a>
-			</h4></li>
-			<li><h4>
-				<a href="participant/form">Add a Participant</a> 
-				<a href="participant/list"><i class="icon-list"></i></a>
-			</h4></li>
-			<li><h4>
-				<a href="project/form">Add a Project</a> 
-				<a href="project/list"><i class="icon-list"></i></a>
-			</h4></li>
-		</ul>
 	</div>
 	<div class="span6">
 
@@ -54,9 +36,12 @@
 					<input type="text" class="span4" name="primary_contact_phone" value="{$client->primary_contact_phone}" id="input-primary_contact_phone">
 				</div>
 			</div>
-			<div class="controls"><input type="submit" value="save" class="btn btn-primary">
+			<div class="form-actions">
+				<input type="submit" value="save" class="btn btn-primary">
 				<a href="client/list" class="btn">cancel</a>
+			<div class="pull-right">
 				<a href="client/{$client->id}" class="delete btn btn-danger">delete</a>
+			</div>
 			</div>
 		</form>
 	</div>

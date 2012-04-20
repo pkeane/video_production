@@ -13,8 +13,8 @@ $(document).ready(function() {
 	Dase.initLabSelector();
 	Dase.initToggleCheck();
 	Dase.initDatepicker();
+	Dase.initModalBoxDelete();
 });
-
 
 Dase.initDatepicker = function() {
 	$('.datepicker').datepicker({format:'yyyy-mm-dd'})
@@ -100,6 +100,29 @@ Dase.initDelete = function(id) {
 	});
 };
 
+Dase.initModalBoxDelete = function(id) {
+	$('div.modal').find("a.delete").click(function() {
+		if (confirm('are you sure?')) {
+			var del_o = {
+				'url': $(this).attr('href'),
+				'type':'DELETE',
+				'success': function(resp) {
+					if (resp.location) {
+						location.href = resp.location;
+					} else {
+						location.reload();
+					}
+				},
+				'error': function() {
+					alert('sorry, cannot delete');
+				}
+			};
+			$.ajax(del_o);
+		}
+		return false;
+	});
+};
+
 Dase.initSortable = function(id) {
 	$('#'+id).sortable({ 
 		cursor: 'crosshair',
@@ -155,7 +178,7 @@ Dase.initSortableTable = function(id) {
 
 Dase.initUserPrivs = function() {
 	$('#user_privs').find('a').click( function() {
-		var method = $(this).attr('class');
+		var method = $(this).attr('class').split(' ')[0];
 		var url = $(this).attr('href');
 		var _o = {
 			'url': url,

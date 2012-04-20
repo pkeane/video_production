@@ -13,7 +13,7 @@ class Dase_DBO_Autogen_User extends Dase_DBO
 {
 	public function __construct($db,$assoc = false) 
 	{
-		parent::__construct($db,'user', array('eid','name','email','is_admin'));
+		parent::__construct($db,'user', array('eid','name','email','is_admin','is_staff'));
 		if ($assoc) {
 			foreach ( $assoc as $key => $value) {
 				$this->$key = $value;

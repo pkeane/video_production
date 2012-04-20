@@ -29,6 +29,7 @@
 		<script src="www/js/jquery.js"></script>
 		<script src="www/js/jquery-ui.js"></script>
 		<script src="www/js/bootstrap-datepicker.js"></script>
+		<script src="www/js/bootstrap-modal.js"></script>
 
 		{/block}
 
@@ -39,22 +40,23 @@
 	<body>
 
 		{block name="header"}
-
-
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
 					<a class="brand" href="#">{$main_title}</a>
 					<ul class="nav">
-						<li class="active"><a href="home">Home</a></li>
+						<li><a href="projects">Projects</a></li>
+						<li><a href="collection/list">Collections</a></li>
+						<li><a href="client/list">Clients</a></li>
+						<li><a href="participant/list">Participants</a></li>
 						{if $request->user->is_admin}
-						<li><a href="admin">admin</a></li>
+						<li><a href="admin">Admin</a></li>
 						{/if}
 					</ul>
-						<form action="search" class="navbar-search">
-							<input type="text" placeholder="Search" class="search-query span2" name="q" value="" />
-							<input type="hidden" name="scope" id="search_scope" value="posts">
-						</form>
+					<form action="search" class="navbar-search">
+						<input type="text" placeholder="Search" class="search-query span2" name="q" value="" />
+						<input type="hidden" name="scope" id="search_scope" value="posts">
+					</form>
 					{if $request->user}
 					<p class="navbar-text pull-right" id="login">
 					<a href="login/{$request->user->eid}" class="delete">logout {$request->user->eid}</a>
@@ -66,6 +68,7 @@
 		{/block}
 
 		<div class="container">
+
 			{block name="main"}
 			{if $msg}<h3 class="msg">{$msg}</h3>{/if}
 			{block name="content"}

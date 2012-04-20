@@ -8,6 +8,7 @@ class Dase_Handler_Admin extends Dase_Handler
 				'users' => 'users',
 				'add_user_form/{eid}' => 'add_user_form',
 				'user/{id}/is_admin' => 'is_admin',
+				'user/{id}/is_staff' => 'is_staff',
 				'create' => 'content_form',
 				'cats' => 'cats',
 		);
@@ -245,6 +246,24 @@ class Dase_Handler_Admin extends Dase_Handler
 				$user->is_admin = 1;
 				$user->update();
 				$r->renderResponse('added privileges');
+		}
+
+		public function deleteIsStaff($r) 
+		{
+				$user = new Dase_DBO_User($this->db);
+				$user->load($r->get('id'));
+				$user->is_staff = 0;
+				$user->update();
+				$r->renderResponse('deleted is staff');
+		}
+
+		public function putIsStaff($r) 
+		{
+				$user = new Dase_DBO_User($this->db);
+				$user->load($r->get('id'));
+				$user->is_staff = 1;
+				$user->update();
+				$r->renderResponse('added is staff');
 		}
 
 		private function _findNextUnique($base_dir,$basename,$ext,$iter=0)

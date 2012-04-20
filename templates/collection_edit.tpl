@@ -7,25 +7,6 @@
 <div class="row">
 	<div class="span4">
 		<h1>Edit Collection/Series</h1>
-
-		<ul class="unstyled">
-			<li><h4>
-				<a href="client/form">Add a Client</a> 
-				<a href="client/list"><i class="icon-list"></i></a>
-			</h4></li>
-			<li><h4>
-				<a href="collection/form" class="greyed">Add a Collection/Series</a> 
-				<a href="collection/list"><i class="icon-list"></i></a>
-			</h4></li>
-			<li><h4>
-				<a href="participant/form">Add a Participant</a> 
-				<a href="participant/list"><i class="icon-list"></i></a>
-			</h4></li>
-			<li><h4>
-				<a href="project/form">Add a Project</a> 
-				<a href="project/list"><i class="icon-list"></i></a>
-			</h4></li>
-		</ul>
 	</div>
 
 	<div class="span6">
@@ -42,9 +23,11 @@
 					<input type="text" class="span4" name="short_name" value="{$collection->short_name}" id="input-short_name">
 				</div>
 			</div>
-			<div class="controls"><input type="submit" value="save" class="btn btn-primary">
+			<div class="form-actions"><input type="submit" value="save" class="btn btn-primary">
 				<a href="collection/list" class="btn">cancel</a>
-				<a href="collection/{$collection->id}" class="delete btn btn-danger">delete</a>
+				<div class="pull-right">
+					<a href="collection/{$collection->id}" class="delete btn btn-danger">delete</a>
+				</div>
 			</div>
 		</form>
 

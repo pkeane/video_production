@@ -17,41 +17,16 @@ class Dase_Handler_Participant extends Dase_Handler
 		public function getList($r) 
 		{
 				$t = new Dase_Template($r);
+				$projects = new Dase_DBO_Project($this->db);
+				$project_list = $projects->findAll(1);
 				$ps = new Dase_DBO_Participant($this->db);
-				$t->assign('participants',$ps->findAll(1));
+				$participants = array();
+				foreach ($ps->findAll(1) as $part) {
+						$part->project = $project_list[$part->project_id];
+						$participants[] = $part;
+				}
+				$t->assign('participants',$participants);
 				$r->renderResponse($t->fetch('participant_list.tpl'));
-		}
-
-		public function getForm($r) 
-		{
-				$t = new Dase_Template($r);
-				$r->renderResponse($t->fetch('participant_form.tpl'));
-		}
-
-		public function postToForm($r) 
-		{
-				$p = new Dase_DBO_Participant($this->db);
-				$p->name = $r->get('name');
-				$p->title = $r->get('title');
-				$p->email = $r->get('email');
-				$p->phone = $r->get('phone');
-				$p->created = date(DATE_ATOM);
-				$p->created_by = $this->user->eid;
-				if ($p->name) {
-						$p->insert();
-				}
-				$r->renderRedirect('participant/list');
-		}
-
-		public function getEditForm($r) 
-		{
-				$p = new Dase_DBO_Participant($this->db);
-				if (!$p->load($r->get('id'))) {
-						$r->renderRedirect('participant/list');
-				}
-				$t = new Dase_Template($r);
-				$t->assign('participant',$p);
-				$r->renderResponse($t->fetch('participant_edit.tpl'));
 		}
 
 		public function deleteParticipant($r) 

@@ -6,6 +6,8 @@ class Dase_DBO_Project extends Dase_DBO_Autogen_Project
 {
 		public $collection;
 		public $client;
+		public $participants = array();
+		public $staff = array();
 
 		/*
 		public static function getList($db)
@@ -70,5 +72,25 @@ class Dase_DBO_Project extends Dase_DBO_Autogen_Project
 				$c->load($this->client_id);
 				$this->client = $c;
 				return $c;
+		}
+
+		public function getParticipants()
+		{
+				$p = new Dase_DBO_Participant($this->db);
+				$p->project_id = $this->id;
+				$this->participants = $p->findAll(1);
+				return $this->participants;
+		}
+
+		public function getStaff()
+		{
+				$pss = new Dase_DBO_ProjectStaff($this->db);
+				$pss->project_id = $this->id;
+				foreach ($pss->findAll(1) as $ps) {
+						$staff = new Dase_DBO_User($this->db);
+						$staff->load($ps->user_id);
+						$this->staff[] = $staff;
+				}
+				return $this->staff;
 		}
 }

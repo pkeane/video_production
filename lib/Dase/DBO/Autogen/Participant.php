@@ -13,7 +13,7 @@ class Dase_DBO_Autogen_Participant extends Dase_DBO
 {
 	public function __construct($db,$assoc = false) 
 	{
-		parent::__construct($db,'participant', array('name','title','email','phone','created','created_by'));
+		parent::__construct($db,'participant', array('name','title','created','created_by','project_id'));
 		if ($assoc) {
 			foreach ( $assoc as $key => $value) {
 				$this->$key = $value;

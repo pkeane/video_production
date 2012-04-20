@@ -12,7 +12,7 @@ a.greyed {
 	color: #999;
 }
 
-a.delete {
+a.xdelete {
 	margin-left: 20px;
 }
 
@@ -20,10 +20,16 @@ a.delete {
 	clear: both;
 }
 
-dl#project dt {
-	width: 200px;
+th[scope="row"] {
+	text-align: right;
+	width: 280px;
+	color: #006;
 }
 
-dl#project dd {
-	margin-left: 220px;
+ul#user_privs li {
+	margin: 9px 0;
+}
+
+ul.participants li {
+	margin: 8px 0;
 }

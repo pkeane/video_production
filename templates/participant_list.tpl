@@ -11,9 +11,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Title</th>
-			<th>Email</th>
-			<th>Phone</th>
-			<th></th>
+			<th>Project</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,9 +19,7 @@
 		<tr>
 			<td>{$part->name}</td>
 			<td>{$part->title}</td>
-			<td>{$part->email}</td>
-			<td>{$part->phone}</td>
-			<td><a href="participant/{$part->id}/edit" class="btn btn-mini btn-danger">edit</a></td>
+			<td><a href="project/{$part->project->id}">{$part->project->title}</a></td>
 		</tr>
 		{/foreach}
 	</tbody>
