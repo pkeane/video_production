@@ -14,6 +14,7 @@
 			<th>Collection</th>
 			<th>Client</th>
 			<th>Category</th>
+			<th>Created By</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -28,6 +29,7 @@
 			<td>{$p->collection->name}</td>
 			<td>{$p->client->name}</td>
 			<td>{$p->itunes_u_category}</td>
+			<td>{$p->created_by}</td>
 			<td><a href="project/{$p->id}" class="btn btn-mini btn-info">view</a></td>
 			<td><a href="project/{$p->id}/edit" class="btn btn-mini btn-danger">edit</a></td>
 		</tr>

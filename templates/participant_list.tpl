@@ -25,11 +25,6 @@
 	</tbody>
 </table>
 
-{if $request->user->is_admin}
-<a class="btn btn-primary" href="participant/form">Add a Participant &raquo;</a>
-{/if}
-
-
 
 
 {/block}

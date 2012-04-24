@@ -4,7 +4,7 @@ Options FollowSymLinks
 FileETag none
 
 RewriteEngine On
-RewriteBase  /video_production/projects  
+RewriteBase  /video_production  
 
 php_flag magic_quotes_gpc off
 

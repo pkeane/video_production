@@ -23,7 +23,7 @@
  *
  */
 
-//apc_clear_cache();
+apc_clear_cache();
 
 //PHP ERROR REPORTING -- turn off for production
 ini_set('display_errors',1);
